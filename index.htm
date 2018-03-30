@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 <head>
 	<meta charset="UTF-8" /> 
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -121,7 +121,7 @@
 	'cap': function(s) { return s.charAt(0).toUpperCase() + s.slice(1); },
 	'word': function(z, h) { return MP['_words'+z].substr((h%(MP['_words'+z].length/z))*z, z); },
 	'reverse': function(m) { return MP.get(m).split('').reverse().join(''); },
-	'base': function(v) { return v >= MP._iter_base.length ** 2 ? null : MP._iter_base[Math.floor(v/MP._iter_base.length)] + MP._iter_base[v%MP._iter_base.length]; },
+	'base': function(v) { return v >= MP._iter_base.length * MP._iter_base.length ? null : MP._iter_base[Math.floor(v/MP._iter_base.length)] + MP._iter_base[v%MP._iter_base.length]; },
 	'md5': function(s) { function L(k,d){return(k<<d)|(k>>>(32-d))}function K(G,k){var I,d,F,H,x;F=(G&2147483648);H=(k&2147483648);I=(G&1073741824);d=(k&1073741824);x=(G&1073741823)+(k&1073741823);if(I&d){return(x^2147483648^F^H)}if(I|d){if(x&1073741824){return(x^3221225472^F^H)}else{return(x^1073741824^F^H)}}else{return(x^F^H)}}function r(d,F,k){return(d&F)|((~d)&k)}function q(d,F,k){return(d&k)|(F&(~k))}function p(d,F,k){return(d^F^k)}function n(d,F,k){return(F^(d|(~k)))}function u(G,F,aa,Z,k,H,I){G=K(G,K(K(r(F,aa,Z),k),I));return K(L(G,H),F)}function f(G,F,aa,Z,k,H,I){G=K(G,K(K(q(F,aa,Z),k),I));return K(L(G,H),F)}function D(G,F,aa,Z,k,H,I){G=K(G,K(K(p(F,aa,Z),k),I));return K(L(G,H),F)}function t(G,F,aa,Z,k,H,I){G=K(G,K(K(n(F,aa,Z),k),I));return K(L(G,H),F)}function e(G){var Z;var F=G.length;var x=F+8;var k=(x-(x%64))/64;var I=(k+1)*16;var aa=Array(I-1);var d=0;var H=0;while(H<F){Z=(H-(H%4))/4;d=(H%4)*8;aa[Z]=(aa[Z]| (G.charCodeAt(H)<<d));H++}Z=(H-(H%4))/4;d=(H%4)*8;aa[Z]=aa[Z]|(128<<d);aa[I-2]=F<<3;aa[I-1]=F>>>29;return aa}function B(x){var k="",F="",G,d;for(d=0;d<=3;d++){G=(x>>>(d*8))&255;F="0"+G.toString(16);k=k+F.substr(F.length-2,2)}return k}function J(k){k=k.replace(/rn/g,"n");var d="";for(var F=0;F<k.length;F++){var x=k.charCodeAt(F);if(x<128){d+=String.fromCharCode(x)}else{if((x>127)&&(x<2048)){d+=String.fromCharCode((x>>6)|192);d+=String.fromCharCode((x&63)|128)}else{d+=String.fromCharCode((x>>12)|224);d+=String.fromCharCode(((x>>6)&63)|128);d+=String.fromCharCode((x&63)|128)}}}return d}var C=Array();var P,h,E,v,g,Y,X,W,V;var S=7,Q=12,N=17,M=22;var A=5,z=9,y=14,w=20;var o=4,m=11,l=16,j=23;var U=6,T=10,R=15,O=21;s=J(s);C=e(s);Y=1732584193;X=4023233417;W=2562383102;V=271733878;for(P=0;P<C.length;P+=16){h=Y;E=X;v=W;g=V;Y=u(Y,X,W,V,C[P+0],S,3614090360);V=u(V,Y,X,W,C[P+1],Q,3905402710);W=u(W,V,Y,X,C[P+2],N,606105819);X=u(X,W,V,Y,C[P+3],M,3250441966);Y=u(Y,X,W,V,C[P+4],S,4118548399);V=u(V,Y,X,W,C[P+5],Q,1200080426);W=u(W,V,Y,X,C[P+6],N,2821735955);X=u(X,W,V,Y,C[P+7],M,4249261313);Y=u(Y,X,W,V,C[P+8],S,1770035416);V=u(V,Y,X,W,C[P+9],Q,2336552879);W=u(W,V,Y,X,C[P+10],N,4294925233);X=u(X,W,V,Y,C[P+11],M,2304563134);Y=u(Y,X,W,V,C[P+12],S,1804603682);V=u(V,Y,X,W,C[P+13],Q,4254626195);W=u(W,V,Y,X,C[P+14],N,2792965006);X=u(X,W,V,Y,C[P+15],M,1236535329);Y=f(Y,X,W,V,C[P+1],A,4129170786);V=f(V,Y,X,W,C[P+6],z,3225465664);W=f(W,V,Y,X,C[P+11],y,643717713);X=f(X,W,V,Y,C[P+0],w,3921069994);Y=f(Y,X,W,V,C[P+5],A,3593408605);V=f(V,Y,X,W,C[P+10],z,38016083);W=f(W,V,Y,X,C[P+15],y,3634488961);X=f(X,W,V,Y,C[P+4],w,3889429448);Y=f(Y,X,W,V,C[P+9],A,568446438);V=f(V,Y,X,W,C[P+14],z,3275163606);W=f(W,V,Y,X,C[P+3],y,4107603335);X=f(X,W,V,Y,C[P+8],w,1163531501);Y=f(Y,X,W,V,C[P+13],A,2850285829);V=f(V,Y,X,W,C[P+2],z,4243563512);W=f(W,V,Y,X,C[P+7],y,1735328473);X=f(X,W,V,Y,C[P+12],w,2368359562);Y=D(Y,X,W,V,C[P+5],o,4294588738);V=D(V,Y,X,W,C[P+8],m,2272392833);W=D(W,V,Y,X,C[P+11],l,1839030562);X=D(X,W,V,Y,C[P+14],j,4259657740);Y=D(Y,X,W,V,C[P+1],o,2763975236);V=D(V,Y,X,W,C[P+4],m,1272893353);W=D(W,V,Y,X,C[P+7],l,4139469664);X=D(X,W,V,Y,C[P+10],j,3200236656);Y=D(Y,X,W,V,C[P+13],o,681279174);V=D(V,Y,X,W,C[P+0],m,3936430074);W=D(W,V,Y,X,C[P+3],l,3572445317);X=D(X,W,V,Y,C[P+6],j,76029189);Y=D(Y,X,W,V,C[P+9],o,3654602809);V=D(V,Y,X,W,C[P+12],m,3873151461);W=D(W,V,Y,X,C[P+15],l,530742520);X=D(X,W,V,Y,C[P+2],j,3299628645);Y=t(Y,X,W,V,C[P+0],U,4096336452);V=t(V,Y,X,W,C[P+7],T,1126891415);W=t(W,V,Y,X,C[P+14],R,2878612391);X=t(X,W,V,Y,C[P+5],O,4237533241);Y=t(Y,X,W,V,C[P+12],U,1700485571);V=t(V,Y,X,W,C[P+3],T,2399980690);W=t(W,V,Y,X,C[P+10],R,4293915773);X=t(X,W,V,Y,C[P+1],O,2240044497);Y=t(Y,X,W,V,C[P+8],U,1873313359);V=t(V,Y,X,W,C[P+15],T,4264355552);W=t(W,V,Y,X,C[P+6],R,2734768916);X=t(X,W,V,Y,C[P+13],O,1309151649);Y=t(Y,X,W,V,C[P+4],U,4149444226);V=t(V,Y,X,W,C[P+11],T,3174756917);W=t(W,V,Y,X,C[P+2],R,718787259);X=t(X,W,V,Y,C[P+9],O,3951481745);Y=K(Y,h);X=K(X,E);W=K(W,v);V=K(V,g)}var i=B(Y)+B(X)+B(W)+B(V);return i.toLowerCase()},
 
 	/* FRONTEND EVENTS */
@@ -175,7 +175,7 @@
 		ela.style.display = 'none';
 		eli.style.animation = 'none';
 		for(var i = 0; i < MP._groupsize; i++) {
-			if(MP._iter >= MP._iter_base.length ** 2)
+			if(MP._iter >= MP._iter_base.length * MP._iter_base.length)
 				break;
 			html += '<div class="mp_pass_container mp_pass_container_' + (MP._iter%2?'odd':'even') + '">';
 			html += '<div class="mp_pass_number">' + MP.base(MP._iter) + '</div>';
@@ -192,15 +192,15 @@
 		var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0],
 			x = w.innerWidth||e.clientWidth||g.clientWidth, y = w.innerHeight||e.clientHeight||g.clientHeight,
 			s = w.pageYOffset||e.scrollTop, newHeight = s>d.getElementById('mp_fixed').offsetHeight?'50px':'';
-		if(MP._iter >= MP._iter_base.length ** 2)
-			return;
 		if(newHeight != document.getElementById('mp_logo').style.height) { 
 			document.getElementById('mp_logo').style.height = newHeight ? '50px' : '';
 			document.getElementById('mp_input').style.display = newHeight ? 'none' : 'block';
 			document.getElementById('mp_top').style.display = newHeight ? 'block' : 'none';
 			MP.onresize();
 		}
-		if(document.body.scrollHeight <= s + window.innerHeight + 500)
+		if(MP._iter >= MP._iter_base.length * MP._iter_base.length)
+			return;
+		else if(document.body.scrollHeight <= s + window.innerHeight + 500)
 			MP.onupdate();
 	},
 	'onpaste': function() {
@@ -220,116 +220,120 @@
 ::-moz-selection { background: #fbb; }
 * { box-sizing: border-box; }
 body,html {
-	height:100%;
-	margin:0;
-	background-color:#fff;
+	height: 100%;
+	margin: 0;
+	background-color: #fff;
 	background: linear-gradient(135deg, #fefefe 25%, #fcfcfc 25%, #fcfcfc 50%, #fefefe 50%, #fefefe 75%, #fcfcfc 75%);
-	background-size:100px 100px;
+	background-size: 100px 100px;
 	scroll-behavior: smooth;
 }
 #mp_fixed {
-	z-index:2;
-	position:fixed;
-	padding-top:20px;
-	top:0;
-	left:0;
-	width:100%;
-	background-color:#fff;
+	z-index: 2;
+	position: fixed;
+	padding-top: 20px;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
 	-webkit-box-shadow: 0px 2px 10px rgba(0,0,0,1);
 	-moz-box-shadow: 0px 2px 10px rgba(0,0,0,1);
 	box-shadow: 0px 2px 10px rgba(0,0,0,1);
 }
 #mp_logo {
-	width:602px;
-	height:182px;
+	width: 602px;
+	height: 182px;
 	transition: 0.5s;
-	-webkit-transition:0.5s;
-	margin:auto;
-	display:block;
+	-webkit-transition: 0.5s;
+	margin: auto;
+	display: block;
 }
 #mp_input {
-	padding-top:8px;
-	padding-bottom:8px;
-	font-size:24px;
-	text-align:center;
-	width:100%;
-	margin-top:20px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	font-size: 24px;
+	text-align: center;
+	width: 100%;
+	margin-top: 20px;
 	transition: 0.5s;
-	-webkit-transition:0.5s;
-	border:0;
+	-webkit-transition: 0.5s;
+	border: 0;
 	border-top: 2px solid #333;
 	border-bottom: 2px solid #966;
-	background: #fafafa;
-	background: -moz-linear-gradient(left, #ffffff 0%, #fafafa 10%, #fafafa 90%, #ffffff 100%);
-	background: -webkit-linear-gradient(left, #ffffff 0%,#fafafa 10%,#fafafa 90%,#ffffff 100%);
-	background: linear-gradient(to right, #ffffff 0%,#fafafa 10%,#fafafa 90%,#ffffff 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1);
+	background: #eeeeee;
+	background: -moz-linear-gradient(left, #ffffff 0%, #eeeeee 10%, #eeeeee 90%, #ffffff 100%);
+	background: -webkit-linear-gradient(left, #ffffff 0%,#eeeeee 10%,#eeeeee 90%,#ffffff 100%);
+	background: linear-gradient(to right, #ffffff 0%,#eeeeee 10%,#eeeeee 90%,#ffffff 100%);
 	animation: mp_glow 1.2s ease-out infinite alternate;
 }
-#mp_input::placeholder { color: #f77; }
-#mp_input::-ms-input-placeholder { color: #f77; }
+#mp_input::placeholder {
+	color: #f55;
+	opacity: 1;
+}
+#mp_input::-ms-input-placeholder {
+	color: #f55;
+}
 @keyframes mp_glow {
 	0% {
-		border-color:#a44;
+		border-color: #a44;
 		box-shadow: 0 0 15px rgba(255,170,170,.4), inset 0 0 15px rgba(255,170,170,.3), 0 2px 0 #000;
 	}	
 	100% {
-		border-color:#a44;
+		border-color: #a44;
 		box-shadow: 0 0 30px rgba(255,170,170,.8), inset 0 0 20px rgba(255,170,170,0.6), 0 2px 0 #000;
 	}
 }
-#mp_input:focus { outline:none; }
+#mp_input:focus { outline: none; }
 #mp_top {
-	position:absolute;
-	z-index:3;
-	bottom:-20px;
-	left:calc(50% - 20px);
-	background-color:#f44;
-	color:#fff;
-	width:40px;
-	height:40px;
-	line-height:40px;
+	position: absolute;
+	z-index: 3;
+	bottom: -20px;
+	left: calc(50% - 20px);
+	background-color: #f44;
+	color: #fff;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
 	-webkit-box-shadow: 2px 2px 2px rgba(0,0,0,1);
 	-moz-box-shadow: 2px 2px 2px rgba(0,0,0,1);
 	box-shadow: 2px 2px 2px rgba(0,0,0,1);
 	border-radius: 50%;
 	transition: 0.5s;
-	-webkit-transition:0.5s;
-	cursor:pointer;
-	display:none;
+	-webkit-transition: 0.5s;
+	cursor: pointer;
+	display: none;
 }
 #mp_top_arrow {
-	width:0; 
-	height:0; 
+	width: 0; 
+	height: 0; 
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-bottom: 10px solid #fff;
-	padding-top:14px;
-	margin:auto;
+	padding-top: 14px;
+	margin: auto;
 }
 #mp_about {
-	font-size:20px;
-	width:50%;
-	left:5%;
-	margin:auto;
-	margin-top:70px;
-	padding:10px;
-	background-color:#fff;
-	border:1px solid black;
-	border-radius:10px;
-	text-align:center;
+	font-size: 20px;
+	width: 50%;
+	left: 5%;
+	margin: auto;
+	margin-top: 70px;
+	padding: 10px;
+	background-color: #fff;
+	border: 1px solid black;
+	border-radius: 10px;
+	text-align: center;
 	-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.8);
 	-moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.8);
 	box-shadow: 2px 2px 5px rgba(0,0,0,0.8);
 }
 #mp_results {
-	width:100%;
-	text-align:center;
-	margin:auto;
+	width: 100%;
+	text-align: center;
+	margin: auto;
 }
 #mp_definitions {
-	display:none;
-	text-align:center;
+	display: none;
+	text-align: center;
 }
 #mp_definitions, #mp_top, #mp_about, .mp_pass_number {
 	-webkit-touch-callout: none;
@@ -340,127 +344,127 @@ body,html {
 	user-select: none;
 }
 .mp_pass_number {
-	z-index:1;
-	top:0;
-	left:0;
-	position:absolute;
-	background-color:#f44;
-	color:#fff;
-	width:40px;
-	height:40px;
-	line-height:40px;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	position: absolute;
+	background-color: #f44;
+	color: #fff;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
 	-webkit-box-shadow: 2px 2px 2px rgba(0,0,0,1);
 	-moz-box-shadow: 2px 2px 2px rgba(0,0,0,1);
 	box-shadow: 2px 2px 2px rgba(0,0,0,1);
 }
 .mp_pass_header_container {
-	font-weight:bold;
+	font-weight: bold;
 }
 .mp_pass_container, .mp_pass_header_container {
-	min-height:60px;
-	border-bottom:1px solid #ccc;
-	position:relative;
+	min-height: 60px;
+	border-bottom: 1px solid #ccc;
+	position: relative;
 }
 .mp_pass_header_container {
-	margin-top:20px;
-	min-height:40px;
-	border-bottom:1px solid #ccc;
+	margin-top: 20px;
+	min-height: 40px;
+	border-bottom: 1px solid #ccc;
 }
 .mp_pass_container_odd {
-	background-color:#fafafa;
+	background-color: #fafafa;
 }
 .mp_pass_container_even {
-	background-color:#f4f4f4;
+	background-color: #f4f4f4;
 }
 .mp_pass, .mp_pass_header {
-	width:14vw;
-	text-align:center;
+	width: 14vw;
+	text-align: center;
 	display: inline-block;
 	white-space: nowrap;
-	font-size:20px;
+	font-size: 20px;
 }
 .mp_pass {
-	margin-top:18px;
-	cursor:pointer;
+	margin-top: 18px;
+	cursor: pointer;
 }
 
 /* SCREEN WIDTH VARIATIONS */
 @media only screen {
 	#mp_logo {
-		width:1204px;
-		height:364px;
+		width: 1204px;
+		height: 364px;
 	}
 }
 @media only screen and (max-width: 4000px) {
 	#mp_logo {
-		width:802px;
-		height:242px;
+		width: 802px;
+		height: 242px;
 	}
 }
 @media only screen and (max-width: 2000px) {
 	#mp_logo {
-		width:602px;
-		height:182px;
+		width: 602px;
+		height: 182px;
 	}
 }
 @media only screen and (max-width: 900px) {
 	#mp_logo {
-		width:401px;
-		height:121px;
-		margin-bottom:25px;
+		width: 401px;
+		height: 121px;
+		margin-bottom: 25px;
 	}
 	#mp_about {
-		width:90%;
-		margin-top:50px;
+		width: 90%;
+		margin-top: 50px;
 	}
 	#mp_fill {
-		margin-bottom:40px;
+		margin-bottom: 40px;
 	}
 	.mp_pass_header_container {
-		display:none;
+		display: none;
 	}
 	.mp_pass_number {
-		float:none;
-		position:static;
-		margin:auto;
-		width:auto;
+		float: none;
+		position: static;
+		margin: auto;
+		width: auto;
 	}
 	.mp_pass_container {
 		display: inline-block;
-		min-width:200px;
+		min-width: 200px;
 	}
 	.mp_pass {
-		margin:auto;
-		width:auto;
-		padding-top:5px;
-		padding-bottom:5px;
+		margin: auto;
+		width: auto;
+		padding-top: 5px;
+		padding-bottom: 5px;
 		display: block;
 	}
 }
 @media only screen and (max-width: 500px) {
 	.mp_pass_container {
 		display: block;
-		width:100%;
+		width: 100%;
 	}
 	#mp_input {
-		margin-top:0px;
-		margin-bottom:0px;
+		margin-top: 0px;
+		margin-bottom: 0px;
 	}
 	#mp_logo {
-		width:301px;
-		height:91px;
+		width: 301px;
+		height: 91px;
 	}
 	#mp_fill {
-		margin-bottom:2px;
+		margin-bottom: 2px;
 	}
 	#mp_about {
-		width:100%;
-		border:0;
-		margin-top:0px;
-		-webkit-box-shadow:none;
-		-moz-box-shadow:none;
-		box-shadow:none;
-		background:transparent;
+		width: 100%;
+		border: 0;
+		margin-top: 0;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		background: transparent;
 	}
 }
 	</style>
@@ -527,7 +531,7 @@ body,html {
 				</path>
 			</g>
 		</svg>
-		<input id="mp_input" type="text" placeholder="&gt;&gt; enter your passphrase here &lt;&lt;" onblur="this.type='password'" onfocus="this.type='text'" autocomplete="off" autocapitalize="off" spellcheck="false" />
+		<input id="mp_input" type="text" placeholder="&gt;&gt; enter your passphrase here &lt;&lt;" onblur="this.type='password'" onfocus="this.type='text'" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" />
 		<div id="mp_definitions"></div>
 		<div id="mp_top" onclick="window.scrollTo(0,0)">
 			<div id="mp_top_arrow"></div>
@@ -536,10 +540,10 @@ body,html {
 	<div id="mp_fill"></div>
 	<div id="mp_about">
 		<p><b>MaskPass</b> is a standalone mnemonic password generator that runs solely within your browser using Javascript, nothing generated or typed here ever leaves your screen.</p>
-		<p>The use case for <b>MaskPass</b> is similar to that of <i>Lastpass</i>-like services in which you use a single password or passphrase to generate all your other passwords, the difference with <b>MaskPass</b> is that your root passphrase and generated passwords never get sent or saved anywhere.</p>
-		<p>The passwords generated are designed to be memorable, but if you forget one you can simply type your root passphrase in again to find it.</p>
+		<p>The use case for <b>MaskPass</b> is similar to that of <i>Lastpass</i>-like services in which you use a single password or passphrase to generate all your other passwords, the difference with <b>MaskPass</b> is that your master passphrase and generated passwords never get sent or saved anywhere.</p>
+		<p>The passwords generated are designed to be memorable, but if you forget one you can simply type your master passphrase in again to find it.</p>
 		<p>This page can be &#34;<i>saved as</i>&#34; a portable single html file that can be executed locally without ever needing to return to this site (<b>maskpass.com</b>) again.</p>
-		<p>To generate your passwords enter your root passphrase above where it says &quot;<i>enter your passphrase here</i>&quot;.</p>
+		<p>To generate your passwords enter your master passphrase above where it says &quot;<i>enter your passphrase here</i>&quot;.</p>
 		<hr />
 		<p><b><u>version: 1.2</u></b></p>
 	</div>

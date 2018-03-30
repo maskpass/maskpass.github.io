@@ -164,7 +164,10 @@
 		}
 	},
 	'onupdate': function() {
-		var html = '', elr = document.getElementById('mp_results'), ela = document.getElementById('mp_about'), eli = document.getElementById('mp_input');
+		var html = '', elr = document.getElementById('mp_results'), ela = document.getElementById('mp_about'), eli = document.getElementById('mp_input'),
+			w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0],
+			x = w.innerWidth||e.clientWidth||g.clientWidth, y = w.innerHeight||e.clientHeight||g.clientHeight,
+			s = w.pageYOffset||e.scrollTop;
 		if(!MP._phrase) {
 			elr.style.display = 'none';
 			ela.style.display = 'block';
@@ -174,19 +177,21 @@
 		elr.style.display = 'block';
 		ela.style.display = 'none';
 		eli.style.animation = 'none';
-		for(var i = 0; i < MP._groupsize; i++) {
-			if(MP._iter >= MP._iter_base.length * MP._iter_base.length)
-				break;
-			html += '<div class="mp_pass_container mp_pass_container_' + (MP._iter%2?'odd':'even') + '">';
-			html += '<div class="mp_pass_number">' + MP.base(MP._iter) + '</div>';
-			for(var m in MP._methods) {
-				var pass = MP.get(MP._methods[m]);
-				html += '<div class="mp_pass" onclick="MP.onselect(this)">' + MP.html(pass) + '</div>';
+		do {
+			for(var i = 0; i < MP._groupsize; i++) {
+				if(MP._iter >= MP._iter_base.length * MP._iter_base.length)
+					break;
+				html += '<div class="mp_pass_container mp_pass_container_' + (MP._iter%2?'odd':'even') + '">';
+				html += '<div class="mp_pass_number">' + MP.base(MP._iter) + '</div>';
+				for(var m in MP._methods) {
+					var pass = MP.get(MP._methods[m]);
+					html += '<div class="mp_pass" onclick="MP.onselect(this)">' + MP.html(pass) + '</div>';
+				}
+				html += '</div>';
+				MP.inc();
 			}
-			html += '</div>';
-			MP.inc();
-		}
-		elr.innerHTML += html;
+			elr.innerHTML += html;
+		} while(y && g && g.scrollHeight && y >= g.scrollHeight);
 	},
 	'onscroll': function(event) {
 		var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0],
@@ -198,9 +203,7 @@
 			document.getElementById('mp_top').style.display = newHeight ? 'block' : 'none';
 			MP.onresize();
 		}
-		if(MP._iter >= MP._iter_base.length * MP._iter_base.length)
-			return;
-		else if(document.body.scrollHeight <= s + window.innerHeight + 500)
+		if(MP._iter < MP._iter_base.length * MP._iter_base.length && g.scrollHeight <= s + y + 500)
 			MP.onupdate();
 	},
 	'onpaste': function() {

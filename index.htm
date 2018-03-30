@@ -226,7 +226,7 @@ body,html {
 	height: 100%;
 	margin: 0;
 	background-color: #fff;
-	background: linear-gradient(135deg, #fefefe 25%, #fcfcfc 25%, #fcfcfc 50%, #fefefe 50%, #fefefe 75%, #fcfcfc 75%);
+	background: linear-gradient(135deg, #fafafa 25%, #f4f4f4 25%, #f4f4f4 50%, #fafafa 50%, #fafafa 75%, #f4f4f4 75%);
 	background-size: 100px 100px;
 	scroll-behavior: smooth;
 }
@@ -262,10 +262,10 @@ body,html {
 	border: 0;
 	border-top: 2px solid #333;
 	border-bottom: 2px solid #966;
-	background: #eeeeee;
-	background: -moz-linear-gradient(left, #ffffff 0%, #eeeeee 10%, #eeeeee 90%, #ffffff 100%);
-	background: -webkit-linear-gradient(left, #ffffff 0%,#eeeeee 10%,#eeeeee 90%,#ffffff 100%);
-	background: linear-gradient(to right, #ffffff 0%,#eeeeee 10%,#eeeeee 90%,#ffffff 100%);
+	background: #e0e0e0;
+	background: -moz-linear-gradient(left, #ffffff 0%, #f0e0e0 20%, #f0e0e0 80%, #ffffff 100%);
+	background: -webkit-linear-gradient(left, #ffffff 0%,#f0e0e0 20%, #f0e0e0 80%,#ffffff 100%);
+	background: linear-gradient(to right, #ffffff 0%, #f0e0e0 20%, #f0e0e0 80%,#ffffff 100%);
 	animation: mp_glow 1.2s ease-out infinite alternate;
 }
 #mp_input::placeholder {
@@ -374,10 +374,10 @@ body,html {
 	border-bottom: 1px solid #ccc;
 }
 .mp_pass_container_odd {
-	background-color: #fafafa;
+	background-color: #f0f0f0;
 }
 .mp_pass_container_even {
-	background-color: #f4f4f4;
+	background-color: #eaeaea;
 }
 .mp_pass, .mp_pass_header {
 	width: 14vw;
@@ -422,6 +422,9 @@ body,html {
 	}
 	#mp_fill {
 		margin-bottom: 40px;
+	}
+	.mp_pass_container_odd, .mp_pass_container_even {
+		background: linear-gradient(to bottom right, #e0e0e0, #f0f0f0);
 	}
 	.mp_pass_header_container {
 		display: none;

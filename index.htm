@@ -222,16 +222,16 @@
 		document.getElementById('mp_fill').style.height = document.getElementById('mp_fixed').offsetHeight + 'px';
 	},
 	'jump': function(text) {
-		var row = prompt('Enter row to jump to:', text ? text : ''), el = null;
-		if(!row || !(row = row.toUpperCase()) || row.length != 2 || MP._iter_base.indexOf(row[0]) < 0 || MP._iter_base.indexOf(row[1]) < 0)
+		var row = prompt('Enter row to jump to: (' + MP.base(0) + '..' + MP.base(MP._iter_base.length * MP._iter_base.length - 1) + ')', text ? text : ''), el = null;
+		if(!row || !(row = row.toUpperCase().trim()) || row.length != 2 || MP._iter_base.indexOf(row[0]) < 0 || MP._iter_base.indexOf(row[1]) < 0)
 			return;
 		while(!(el = document.getElementById('mp_anchor_' + row))) {
 			if(MP._iter >= MP._iter_base.length * MP._iter_base.length)
 				break;
 			MP.onupdate();
 		}
-		if(el && el.scrollIntoView)
-			setTimeout(function() { el.scrollIntoView(false); }, 250);
+		if(el && el.getBoundingClientRect && window.scrollBy)
+			window.scrollBy(0, el.getBoundingClientRect().top - document.getElementById('mp_fill').offsetHeight);
 	}
 }
 	</script>

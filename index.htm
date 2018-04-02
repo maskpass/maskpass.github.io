@@ -127,7 +127,9 @@
 
 	/* FRONTEND EVENTS */
 	'onload': function() {
-		var mpInput = document.getElementById('mp_input'), html='';
+		var mpInput = document.getElementById('mp_input'), local = !(location && location.protocol && location.protocol.match(/^h/i)), html = '';
+		for(var i = 0, els = document.getElementsByClassName('mp_site_only'); i < els.length; i++)
+			els[i].style.display = local ? 'none' : '';
 		window.addEventListener('scroll', MP.onscroll);
 		window.addEventListener('resize', MP.onresize);
 		mpInput.value = '';
@@ -564,13 +566,13 @@ body,html {
 	</div>
 	<div id="mp_fill"></div>
 	<div id="mp_about">
-		<p><b>MaskPass</b> is a standalone mnemonic password generator that runs solely within your browser using Javascript. Nothing generated or typed here ever leaves your screen, which is why this site (<b>maskpass.com</b>) doesn't need ssl.</p>
+		<p><b>MaskPass</b> is a standalone mnemonic password generator that runs solely within your browser using Javascript. Nothing generated or typed here ever leaves your screen<span class="mp_site_only">, which is why this site (<b>maskpass.com</b>) doesn't need ssl</span>.</p>
 		<p>The use case for <b>MaskPass</b> is similar to that of <i>Lastpass</i>-like services in which you use a single password or passphrase to generate all your other passwords. The difference with <b>MaskPass</b> is that you're expected to remember your passwords using mnemonics instead of relying on a service, thus never having to trust a third party with your credentials.</p>
 		<p>The passwords generated are designed to be memorable, but if you forget one you can simply type your master passphrase in again to find it.</p>
-		<p>This page can be &#34;<i>saved as</i>&#34; a portable single html file that can be executed locally without ever needing to return to this site (<b>maskpass.com</b>) again.</p>
+		<p class="mp_site_only">This page can be &#34;<i>saved as</i>&#34; a portable single html file that can be executed locally without ever needing to return to this site (<b>maskpass.com</b>) again.</p>
 		<p>To generate your passwords enter your master passphrase above where it says &quot;<i>enter your passphrase here</i>&quot;.</p>
 		<hr />
-		<p><b><u>version: 1.3</u></b></p>
+		<p><b><u>version: 1.4</u></b></p>
 		<p>[&nbsp;<span id="mp_checksum" title="&lt;script&gt; checksum">not validated</span>&nbsp;]</p>
 	</div>
 	<div id="mp_results"></div>

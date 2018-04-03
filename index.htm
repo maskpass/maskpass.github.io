@@ -148,10 +148,10 @@
 	'onkeyup': function(event) {
 		var phrase = document.getElementById('mp_input').value;
 		document.getElementById('mp_results').innerHTML = '';
-		document.getElementById('mp_definitions').style.display = phrase?'block':'none';
+		document.getElementById('mp_definitions').style.display = phrase ? 'block' : 'none';
 		document.getElementById('mp_jump').style.display = phrase ? 'block' : 'none';
-		window.scrollTo(0,0);
 		MP.set(phrase);
+		window.scrollTo(0,0);
 		MP.onupdate();
 		MP.resize();
 		if(event && event.key && event.key === 'Enter')
@@ -209,7 +209,7 @@
 			document.getElementById('mp_logo').style.height = newHeight ? '50px' : '';
 			document.getElementById('mp_input').style.display = newHeight ? 'none' : 'block';
 			document.getElementById('mp_top').style.display = newHeight ? 'block' : 'none';
-			document.getElementById('mp_jump').style.display = newHeight ? 'none' : 'block';
+			document.getElementById('mp_jump').style.display = !MP._phrase || newHeight ? 'none' : 'block';
 			MP.onresize();
 		}
 		if(MP._iter < MP._iter_base.length * MP._iter_base.length && g.scrollHeight <= s + y + 500)

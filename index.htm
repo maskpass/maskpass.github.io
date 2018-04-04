@@ -21,9 +21,9 @@
 	  HASH_ARRAY[4]         =         [ 2863311530 , 3149642683 , 3435973836 , 3722304989 ] (four 32bit values)
 
 	  # Note this is an example, variations may have different "parts".
-	  PASS_PART_1 = 4_LETTER_WORDS[HASH_ARRAY[0] % HASH_ARRAY_LENGTH[0]]
-	  PASS_PART_2 = 3_LETTER_WORDS[HASH_ARRAY[1] % HASH_ARRAY_LENGTH[1]]
-	  PASS_PART_3 = SPECIAL_CHARS[HASH_ARRAY[2] % HASH_ARRAY_LENGTH[2]]
+	  PASS_PART_1 = 4_LETTER_WORDS[HASH_ARRAY[0] % 4_LETTER_WORDS_LENGTH]
+	  PASS_PART_2 = 3_LETTER_WORDS[HASH_ARRAY[1] % 3_LETTER_WORDS_LENGTH]
+	  PASS_PART_3 = SPECIAL_CHARS[HASH_ARRAY[2] % SPECIAL_CHARS_LENGTH]
 	  PASS_PART_4 = ZERO_PAD(LEFT(HASH_ARRAY[3], 4), 4)
 
 	  # Sorting and capitalization is determined by comparing the four 32 bit integers against eachother.
